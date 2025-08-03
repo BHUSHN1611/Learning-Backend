@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "description": "a production level product ",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "test": ""
+    "dev": "nodemon scr/index.js"
   },
   "keywords": [
     "javascript",
@@ -12,5 +13,8 @@
     "chai"
   ],
   "author": "Bhushan",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
 }
