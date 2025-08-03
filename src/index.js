@@ -1,13 +1,24 @@
 // require ('dotenv').config({path:'./env'}) ild method , make code inconsistent;
 
-
 import connectDB from "./db/index.js";
 import dotenv from "dotenv"
 
 dotenv.config({
     path:'./env'
 })
-connectDB();
+
+connectDB().then(()=>{
+    app.on('error',(error)=>{
+            console.log("Err",error);
+            throw error
+        });
+    app.listen(process.env.PORT || 8000,()=>{
+        console.log(`Server is listening  at http://localhost:${process.env.PORT}`)
+    })
+})
+.catch((error)=>{
+    console.log("Mongo DB connection failed !!",error)
+})
 
 
 
