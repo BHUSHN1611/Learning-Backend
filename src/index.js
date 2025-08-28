@@ -1,19 +1,25 @@
-// require ('dotenv').config({path:'./env'}) ild method , make code inconsistent;
+// require ('dotenv').config({path:'./env'}) idl method , make code inconsistent;
 
 import connectDB from "./db/index.js";
 import dotenv from "dotenv"
+import {app} from './app.js';
 
 dotenv.config({
     path:'./env'
 })
 
+const port = process.env.PORT;
+
 connectDB().then(()=>{
+    app.get("/",(req,res)=>{
+        res.send("Server is ready")
+    })
     app.on('error',(error)=>{
             console.log("Err",error);
             throw error
         });
-    app.listen(process.env.PORT || 8000,()=>{
-        console.log(`Server is listening  at http://localhost:${process.env.PORT}`)
+    app.listen(port|| 8000,()=>{
+        console.log(`Server is listening  at http://localhost:${port}`)
     })
 })
 .catch((error)=>{
