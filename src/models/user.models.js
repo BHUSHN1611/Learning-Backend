@@ -21,7 +21,7 @@ const userSchema = mongoose.Schema(
             lowercase:true,
             trim:true,
         },
-        fullname : {
+        fullName : {
             type:String,
             required:true,
             trim:true,
@@ -30,7 +30,6 @@ const userSchema = mongoose.Schema(
         avatar:{
             type:String,
             required:true,
-            
         },
         coverImage : {
             type:String,

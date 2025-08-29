@@ -11,9 +11,9 @@ dotenv.config({
 const port = process.env.PORT;
 
 connectDB().then(()=>{
-    app.get("/",(req,res)=>{
-        res.send("Server is ready")
-    })
+    // app.get("/",(req,res)=>{
+    //     res.send("Server is ready")
+    // })
     app.on('error',(error)=>{
             console.log("Err",error);
             throw error
